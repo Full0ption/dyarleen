@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ديار لين — مشروع سكني في المنيا الجديدة أمام جامعة اللوتس مباشرة. ١٠ وحدات فقط من ٧٥ إلى ١٣٥ م²، حدائق خاصة، الاستلام ٢٠٢٧. من ليناس للتطوير العقاري.">
+<meta name="theme-color" content="#0b0a08">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_EG">
+<meta property="og:title" content="ديار لين — DYARLEEN">
+<meta property="og:description" content="ديار لين — مشروع سكني في المنيا الجديدة أمام جامعة اللوتس مباشرة. ١٠ وحدات فقط من ٧٥ إلى ١٣٥ م²، حدائق خاصة، الاستلام ٢٠٢٧. من ليناس للتطوير العقاري.">
+<meta property="og:image" content="img/render-sunset.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/logo-dyarleen.jpg">
+<style>
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px) }
+  img { max-width: 100% }
+  [hidden] { display: none !important }
+</style>
+<title>ديار لين</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@500;600;700&family=Noto+Sans+Arabic:wght@300;400;600&family=Cormorant+Garamond:wght@400;600&display=swap">
+<style>
+  /* Layout: a vertical scroll brochure. Full-bleed render, then measured bands on warm near-black.
+     Gold hairlines are the only structural device; motion is one orchestrated hero entrance plus
+     quiet section lifts. Single committed dark world — the brand is gold on black. */
+  :root {
+    --ink:        #0b0a08;
+    --ink-raise:  #14120e;
+    --ink-soft:   #100e0b;
+    --gold:       #c8a45c;
+    --gold-bright:#e6cd92;
+    --gold-deep:  #8d6f34;
+    --cream:      #ece3d2;
+    --cream-dim:  #9b9384;
+    --line:       #2f2a20;
+    color-scheme: dark;
+
+    --f-disp: "Noto Naskh Arabic", "Segoe UI", serif;
+    --f-body: "Noto Sans Arabic", "Segoe UI", sans-serif;
+    --f-lat:  "Cormorant Garamond", Georgia, serif;
+
+    --ease: cubic-bezier(.22, .61, .36, 1);
+  }
+
+  * { box-sizing: border-box }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px }
+  body {
+    margin: 0; background: var(--ink); color: var(--cream);
+    direction: rtl; text-align: right;
+    font-family: var(--f-body); font-weight: 300;
+    font-size: clamp(15px, 1.05vw + 12px, 18px); line-height: 1.85;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+
+  .wrap { max-width: 1120px; margin-inline: auto; padding-inline: 20px }
+  section { padding-block: clamp(56px, 7vw, 108px); position: relative }
+  section + section { border-top: 1px solid var(--line) }
+
+  h1, h2, h3 { font-family: var(--f-disp); font-weight: 700; line-height: 1.35; text-wrap: balance; margin: 0 }
+  h2 { font-size: clamp(26px, 3vw, 40px) }
+  p { margin: 0 }
+
+  .eyebrow {
+    font-family: var(--f-lat); letter-spacing: .32em; text-transform: uppercase;
+    font-size: 12px; color: var(--gold); margin-bottom: 12px;
+  }
+  /* the rule under each section heading draws itself in */
+  .head-rule { height: 1px; background: linear-gradient(to left, var(--gold), transparent); margin-top: 20px; transform-origin: right center }
+  .lead { color: var(--cream-dim); max-width: 62ch; margin-top: 20px }
+
+  /* ---------- reading progress ---------- */
+  #bar { position: fixed; top: 0; right: 0; height: 2px; width: 0; background: linear-gradient(to left, var(--gold-bright), var(--gold-deep)); z-index: 40 }
+
+  /* ---------- sticky nav ---------- */
+  nav {
+    position: fixed; top: 0; inset-inline: 0; z-index: 30;
+    background: rgba(11,10,8,.9); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0 12px; padding-top: calc(12px + env(safe-area-inset-top, 0px));
+    transform: translateY(-104%); transition: transform .45s var(--ease);
+  }
+  nav[data-show] { transform: translateY(0) }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px }
+  nav .brand { font-family: var(--f-disp); font-weight: 700; font-size: 19px; color: var(--gold-bright); white-space: nowrap }
+  nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; overflow-x: auto; scrollbar-width: none }
+  nav ul::-webkit-scrollbar { display: none }
+  nav a { color: var(--cream-dim); text-decoration: none; font-size: 14.5px; white-space: nowrap; padding-bottom: 3px; border-bottom: 1px solid transparent; transition: color .25s, border-color .25s }
+  nav a:hover, nav a:focus-visible { color: var(--gold-bright); border-bottom-color: var(--gold) }
+  @media (max-width: 720px) { nav .brand { display: none } nav ul { gap: 18px } }
+
+  /* ---------- hero ---------- */
+  .hero { border-top: 0; padding-block: 0 }
+  .hero-img { position: relative; aspect-ratio: 16/10; max-width: 100%; overflow: hidden }
+  .hero-img img { width: 100%; height: 118%; object-fit: cover; display: block; will-change: transform }
+  .hero-img::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, var(--ink) 3%, rgba(11,10,8,.58) 44%, rgba(11,10,8,.15) 100%);
+  }
+  .hero-body { position: relative; margin-top: -14vw; text-align: center; padding-bottom: clamp(40px, 6vw, 80px) }
+  @media (max-width: 720px) { .hero-body { margin-top: -24vw } }
+
+  .hero-mark { width: clamp(112px, 14vw, 172px); height: auto; margin-inline: auto; display: block }
+  .hero-title {
+    font-family: var(--f-disp); font-weight: 700;
+    font-size: clamp(46px, 9vw, 104px); line-height: 1.1; margin-top: 6px;
+    background: linear-gradient(175deg, var(--gold-bright), var(--gold) 52%, var(--gold-deep));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    position: relative;
+  }
+  .hero-lat { font-family: var(--f-lat); letter-spacing: .38em; font-size: clamp(12px, 1.3vw, 16px); color: var(--gold); margin-top: 4px }
+  .hero-sub { font-family: var(--f-disp); font-size: clamp(17px, 2vw, 25px); margin-top: 22px }
+  .hero-meta { color: var(--cream-dim); font-size: 15px; margin-top: 8px }
+  .hero-cta {
+    display: inline-block; margin-top: 30px; padding: 13px 34px;
+    border: 1px solid var(--gold); color: var(--gold-bright); text-decoration: none;
+    font-family: var(--f-disp); font-size: 16.5px; transition: background .28s var(--ease), color .28s var(--ease);
+  }
+  .hero-cta:hover { background: var(--gold); color: var(--ink) }
+
+  /* hero entrance — runs on load, so the first frame settles on its own */
+  .lift { animation: lift .95s var(--ease) both }
+  @keyframes lift { from { opacity: 0; transform: translateY(20px) } to { opacity: 1; transform: none } }
+
+  /* ---------- facts ---------- */
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 34px }
+  .fact { background: var(--ink-raise); padding: 26px 16px; text-align: center; transition: background .3s }
+  .fact:hover { background: var(--ink-soft) }
+  .fact b { display: block; font-family: var(--f-disp); font-weight: 700; font-size: clamp(23px, 2.6vw, 34px); color: var(--gold-bright); font-variant-numeric: tabular-nums; line-height: 1.25 }
+  .fact span { display: block; font-size: 13.5px; color: var(--cream-dim); margin-top: 6px; line-height: 1.6 }
+  @media (max-width: 760px) { .facts { grid-template-columns: repeat(2, 1fr) } }
+
+  /* ---------- table ---------- */
+  .tbl-scroll { overflow-x: auto; margin-top: 30px; border: 1px solid var(--line) }
+  table { width: 100%; border-collapse: collapse; min-width: 560px; font-variant-numeric: tabular-nums }
+  caption { text-align: right; color: var(--cream-dim); font-size: 14px; padding: 0 0 12px }
+  th, td { padding: 15px 18px; text-align: right; border-bottom: 1px solid var(--line) }
+  thead th { font-weight: 600; font-size: 13.5px; letter-spacing: .06em; color: var(--gold); background: var(--ink-raise) }
+  tbody tr { transition: background .25s }
+  tbody tr:hover { background: var(--ink-raise) }
+  tbody tr:last-child td { border-bottom: 0 }
+  td.u { font-family: var(--f-lat); font-size: 19px; color: var(--gold-bright); letter-spacing: .06em }
+  td.a { font-weight: 600 }
+  td.g { color: var(--cream-dim) }
+
+  /* ---------- neighbourhood ---------- */
+  .near { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 34px }
+  .near li { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 15.5px }
+  .near li span:last-child { color: var(--gold); font-variant-numeric: tabular-nums; white-space: nowrap }
+  @media (max-width: 680px) { .near { grid-template-columns: 1fr } }
+
+  /* ---------- galleries ---------- */
+  .grid { display: grid; gap: 14px; margin-top: 30px }
+  .g3 { grid-template-columns: repeat(3, 1fr) }
+  .g2 { grid-template-columns: repeat(2, 1fr) }
+  @media (max-width: 860px) { .g3 { grid-template-columns: repeat(2, 1fr) } }
+  @media (max-width: 560px) { .g3, .g2 { grid-template-columns: 1fr } }
+
+  figure { margin: 0; background: var(--ink-raise); border: 1px solid var(--line); overflow: hidden; transition: border-color .3s var(--ease) }
+  figure:hover { border-color: var(--gold-deep) }
+  .shot { overflow: hidden }
+  figure img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 16/10; max-width: 100%; transition: transform .7s var(--ease) }
+  figure:hover .shot img { transform: scale(1.045) }
+  figure.plan img { aspect-ratio: 4/3; object-fit: contain; background: #0f0d0a }
+  figure.plan:hover .shot img { transform: none }
+  figcaption { padding: 12px 16px; font-size: 13.5px; color: var(--cream-dim); border-top: 1px solid var(--line) }
+  figcaption b { color: var(--gold-bright); font-weight: 600 }
+
+  .zoom { cursor: zoom-in }
+  .zoom:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px }
+
+  .unit { border: 1px solid var(--line); background: var(--ink-raise); transition: border-color .3s }
+  .unit:hover { border-color: var(--gold-deep) }
+  .unit-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 16px 18px; border-bottom: 1px solid var(--line); flex-wrap: wrap }
+  .unit-head .code { font-family: var(--f-lat); font-size: 23px; color: var(--gold-bright); letter-spacing: .08em }
+  .unit-head .area { font-size: 15px }
+  .unit-head .area em { font-style: normal; color: var(--cream-dim) }
+  .unit-imgs { display: grid; grid-template-columns: 1.45fr 1fr; gap: 1px; background: var(--line) }
+  .unit-imgs.one { grid-template-columns: 1fr }
+  @media (max-width: 620px) { .unit-imgs { grid-template-columns: 1fr } }
+  .unit-imgs img { width: 100%; display: block; background: #0f0d0a; object-fit: contain; aspect-ratio: 4/3; max-width: 100% }
+
+  /* ---------- contact ---------- */
+  .contact { text-align: center }
+  .phones { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 28px }
+  .phone {
+    border: 1px solid var(--gold); color: var(--gold-bright); background: transparent;
+    padding: 13px 26px; font-family: var(--f-lat); font-size: 21px; letter-spacing: .12em;
+    font-variant-numeric: tabular-nums; cursor: pointer; transition: background .28s var(--ease), color .28s var(--ease);
+  }
+  .phone:hover { background: var(--gold); color: var(--ink) }
+  .phone:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px }
+  .copied { font-size: 13.5px; color: var(--gold); margin-top: 14px; min-height: 1.5em }
+
+  .note { margin-top: 22px; font-size: 13px; color: var(--cream-dim); opacity: .85 }
+  footer { border-top: 1px solid var(--line); padding-block: 36px; text-align: center; color: var(--cream-dim); font-size: 13px }
+  footer .fine { display: block; margin-top: 14px; font-size: 12px; opacity: .7; max-width: 60ch; margin-inline: auto }
+  footer .lat { font-family: var(--f-lat); letter-spacing: .3em; color: var(--gold); display: block; margin-bottom: 8px; font-size: 14px }
+
+  /* ---------- lightbox ---------- */
+  #lb { position: fixed; inset: 0; background: rgba(6,5,4,.97); display: none; align-items: center; justify-content: center; z-index: 50; padding: 20px; opacity: 0; transition: opacity .3s var(--ease) }
+  #lb[data-open] { display: flex }
+  #lb[data-in] { opacity: 1 }
+  #lb figure { border: 0; background: transparent; max-width: 100%; max-height: 100% }
+  #lb img { max-width: 100%; max-height: 88vh; object-fit: contain; aspect-ratio: auto }
+  #lb .cap { text-align: center; color: var(--cream-dim); font-size: 14px; padding-top: 12px; border: 0 }
+  #lb .btn {
+    position: fixed; background: rgba(20,18,14,.85); border: 1px solid var(--line); color: var(--cream);
+    width: 46px; height: 46px; font-size: 22px; cursor: pointer; line-height: 1; transition: border-color .25s, color .25s;
+  }
+  #lb .btn:hover { border-color: var(--gold); color: var(--gold-bright) }
+  #lb-x { top: calc(16px + env(safe-area-inset-top, 0px)); left: 18px }
+  #lb-p { top: 50%; left: 18px; transform: translateY(-50%) }
+  #lb-n { top: 50%; right: 18px; transform: translateY(-50%) }
+
+  /* ---------- scroll lifts (JS-gated so no-JS shows everything) ---------- */
+  .js .r { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease) }
+  .js .r.in { opacity: 1; transform: none }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto }
+    *, *::before, *::after { animation: none !important; transition: none !important }
+    .js .r { opacity: 1 !important; transform: none !important }
+    .hero-img img { height: 100% }
+  }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<nav id="nav" aria-label="أقسام الصفحة">
+  <div class="wrap">
+    <span class="brand">ديار لين</span>
+    <ul>
+      <li><a href="#project">المشروع</a></li>
+      <li><a href="#units">الوحدات</a></li>
+      <li><a href="#location">الموقع</a></li>
+      <li><a href="#plans">المخططات</a></li>
+      <li><a href="#facades">الواجهات</a></li>
+      <li><a href="#contact">اتصل</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-img">
+    <img id="heroimg" src="img/render-sunset.jpg" alt="واجهة مشروع ديار لين وقت الغروب" width="1673" height="940">
+  </div>
+  <div class="wrap hero-body">
+    <img class="hero-mark lift" style="animation-delay:.05s" src="img/logo-dyarleen.jpg" alt="" aria-hidden="true">
+    <h1 class="hero-title lift" style="animation-delay:.16s">ديار لين</h1>
+    <p class="hero-lat lift" style="animation-delay:.26s">DYARLEEN</p>
+    <p class="hero-sub lift" style="animation-delay:.36s">المنيا الجديدة &mdash; أمام جامعة اللوتس مباشرة</p>
+    <p class="hero-meta lift" style="animation-delay:.44s">قطعة ٣٢٤ A &nbsp;·&nbsp; أرضي و‎٤ أدوار &nbsp;·&nbsp; ١٠ وحدات &nbsp;·&nbsp; الاستلام ٢٠٢٧</p>
+    <a class="hero-cta lift" style="animation-delay:.54s" href="#units">شوف الوحدات</a>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <div class="r">
+      <p class="eyebrow">The Project</p>
+      <h2>عمارة واحدة، عشر وحدات، ومكان لا يتكرر</h2>
+      <div class="head-rule"></div>
+      <p class="lead">
+        ديار لين مشروع سكني من ليناس للتطوير العقاري في قلب المنيا الجديدة، على قطعة مساحتها
+        ٤٠٣٫٣٢ م². المبنى أرضي و‎أربعة أدوار، وكل دور فيه وحدتين فقط &mdash; يعني عشر وحدات في
+        المشروع كله. وحدات الدور الأرضي والدور الأخير لها حدائق خاصة، وكل وحدة فيها ريسبشن
+        وغرفتين وماستر بحمام خاص ومطبخ ولوبي وتراسات.
+      </p>
+    </div>
+
+    <div class="facts r">
+      <div class="fact"><b data-count="٤٠٣٫٣٢">٤٠٣٫٣٢</b><span>مساحة الأرض (م²)</span></div>
+      <div class="fact"><b data-count="١٠">١٠</b><span>وحدات فقط</span></div>
+      <div class="fact"><b>٧٥ &ndash; ١٣٥</b><span>مساحات الوحدات (م²)</span></div>
+      <div class="fact"><b data-count="٢٠٢٧">٢٠٢٧</b><span>موعد الاستلام</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="units">
+  <div class="wrap">
+    <div class="r">
+      <p class="eyebrow">Unit Schedule</p>
+      <h2>جدول الوحدات</h2>
+      <div class="head-rule"></div>
+    </div>
+    <div class="tbl-scroll r">
+      <table>
+        <caption>المساحات كما وردت في الكتالوج المعتمد للمشروع.</caption>
+        <thead>
+          <tr><th scope="col">الدور</th><th scope="col">الوحدة</th><th scope="col">مساحة الوحدة</th><th scope="col">الحديقة الخاصة</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>الأرضي</td><td class="u">G1</td><td class="a">١١٠ م²</td><td class="g">٧٧٫٥ م²</td></tr>
+          <tr><td>الأرضي</td><td class="u">G2</td><td class="a">١١٨ م²</td><td class="g">٨٥٫٥٠ م²</td></tr>
+          <tr><td>المتكرر (الأول &mdash; الثاني &mdash; الثالث)</td><td class="u">F1</td><td class="a">١٣٠ م²</td><td class="g">&mdash;</td></tr>
+          <tr><td>المتكرر (الأول &mdash; الثاني &mdash; الثالث)</td><td class="u">F2</td><td class="a">١٣٥ م²</td><td class="g">&mdash;</td></tr>
+          <tr><td>الرابع (الروف)</td><td class="u">R1</td><td class="a">٩٠ م²</td><td class="g">٢٨ م²</td></tr>
+          <tr><td>الرابع (الروف)</td><td class="u">R2</td><td class="a">٧٥ م²</td><td class="g">٥٤٫٥٠ م²</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="r" style="margin-top:46px; font-size:clamp(19px,1.7vw,25px); color:var(--gold-bright)">الوحدات بالتفصيل</h3>
+    <div class="grid r" style="gap:22px; margin-top:20px">
+      <div class="unit">
+        <div class="unit-head"><span class="code">UNIT G1</span><span class="area">١١٠ م² <em>+ حديقة ٧٧٫٥ م²</em> &nbsp;·&nbsp; الدور الأرضي</span></div>
+        <div class="unit-imgs">
+          <img class="zoom" src="img/unit-g1.jpg" alt="مخطط الوحدة G1" tabindex="0">
+          <img class="zoom" src="img/sched-a.jpg" alt="جدول مساحات غرف الوحدة G1" tabindex="0">
+        </div>
+      </div>
+      <div class="unit">
+        <div class="unit-head"><span class="code">UNIT G2</span><span class="area">١١٨ م² <em>+ حديقة ٨٥٫٥٠ م²</em> &nbsp;·&nbsp; الدور الأرضي</span></div>
+        <div class="unit-imgs">
+          <img class="zoom" src="img/unit-g2.jpg" alt="مخطط الوحدة G2" tabindex="0">
+          <img class="zoom" src="img/sched-b.jpg" alt="جدول مساحات غرف الوحدة G2" tabindex="0">
+        </div>
+      </div>
+      <div class="unit">
+        <div class="unit-head"><span class="code">UNIT F1</span><span class="area">١٣٠ م² &nbsp;·&nbsp; الدور المتكرر</span></div>
+        <div class="unit-imgs">
+          <img class="zoom" src="img/unit-f11.jpg" alt="مخطط الوحدة F1" tabindex="0">
+          <img class="zoom" src="img/sched-c.jpg" alt="جدول مساحات غرف الوحدة F1" tabindex="0">
+        </div>
+      </div>
+      <div class="unit">
+        <div class="unit-head"><span class="code">UNIT F2</span><span class="area">١٣٥ م² &nbsp;·&nbsp; الدور المتكرر</span></div>
+        <div class="unit-imgs">
+          <img class="zoom" src="img/unit-f12.jpg" alt="مخطط الوحدة F2" tabindex="0">
+          <img class="zoom" src="img/sched-d.jpg" alt="جدول مساحات غرف الوحدة F2" tabindex="0">
+        </div>
+      </div>
+      <div class="unit">
+        <div class="unit-head"><span class="code">UNIT R1</span><span class="area">٩٠ م² <em>+ حديقة ٢٨ م²</em> &nbsp;·&nbsp; الدور الرابع</span></div>
+        <div class="unit-imgs one"><img class="zoom" src="img/unit-r1.jpg" alt="مخطط الوحدة R1" tabindex="0"></div>
+      </div>
+      <div class="unit">
+        <div class="unit-head"><span class="code">UNIT R2</span><span class="area">٧٥ م² <em>+ حديقة ٥٤٫٥٠ م²</em> &nbsp;·&nbsp; الدور الرابع</span></div>
+        <div class="unit-imgs one"><img class="zoom" src="img/unit-r2.jpg" alt="مخطط الوحدة R2" tabindex="0"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="wrap">
+    <div class="r">
+      <p class="eyebrow">Location</p>
+      <h2>الموقع</h2>
+      <div class="head-rule"></div>
+      <p class="lead">
+        المشروع داخل حي متكامل في المنيا الجديدة، على الطريق الصحراوي الشرقي
+        (المنيا &mdash; القاهرة)، وأمام جامعة اللوتس مباشرة. الخدمات الأساسية كلها في نفس الحي.
+      </p>
+    </div>
+
+    <ul class="near r">
+      <li><span>جامعة اللوتس</span><span>٣٥٫٨٤ فدان</span></li>
+      <li><span>حديقة عامة</span><span>٣٥٫٣ فدان</span></li>
+      <li><span>جامعة خاصة</span><span>١٢٫٥٣ فدان</span></li>
+      <li><span>توسعات مقترحة لجامعتين</span><span>٨١ فدان</span></li>
+      <li><span>مدارس خاصة</span><span>داخل الحي</span></li>
+      <li><span>مول تجاري</span><span>داخل الحي</span></li>
+      <li><span>مسجد</span><span>داخل الحي</span></li>
+      <li><span>الطريق الصحراوي الشرقي</span><span>على الحي</span></li>
+    </ul>
+
+    <div class="grid g2 r">
+      <figure><div class="shot"><img class="zoom" src="img/siteplan-light.jpg" alt="المخطط العام للحي وموقع المشروع" tabindex="0"></div><figcaption><b>المخطط العام</b> &mdash; اضغط للتكبير</figcaption></figure>
+      <figure><div class="shot"><img class="zoom" src="img/siteplan.jpg" alt="المخطط العام بتفاصيل قطع الأراضي والخدمات" tabindex="0"></div><figcaption><b>تفاصيل الحي</b> &mdash; القطع والخدمات</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="plans">
+  <div class="wrap">
+    <div class="r">
+      <p class="eyebrow">Floor Plans</p>
+      <h2>مخططات الأدوار</h2>
+      <div class="head-rule"></div>
+      <p class="lead">كل دور فيه وحدتين. اضغط على أي مخطط لتكبيره.</p>
+    </div>
+    <div class="grid g3 r">
+      <figure class="plan"><div class="shot"><img class="zoom" src="img/floor-ground.jpg" alt="مخطط الدور الأرضي" tabindex="0"></div><figcaption><b>الدور الأرضي</b> &mdash; G1 و‎G2 بحدائق</figcaption></figure>
+      <figure class="plan"><div class="shot"><img class="zoom" src="img/floor-typical.jpg" alt="مخطط الدور المتكرر" tabindex="0"></div><figcaption><b>الدور المتكرر</b> &mdash; الأول والثاني والثالث</figcaption></figure>
+      <figure class="plan"><div class="shot"><img class="zoom" src="img/floor-roof.jpg" alt="مخطط الدور الرابع الروف" tabindex="0"></div><figcaption><b>الدور الرابع (الروف)</b> &mdash; R1 و‎R2 بحدائق</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="facades">
+  <div class="wrap">
+    <div class="r">
+      <p class="eyebrow">Facades</p>
+      <h2>الواجهات</h2>
+      <div class="head-rule"></div>
+    </div>
+    <div class="grid g3 r">
+      <figure><div class="shot"><img class="zoom" src="img/render-sunset2.jpg" alt="الواجهة وقت الغروب" tabindex="0"></div><figcaption>الغروب</figcaption></figure>
+      <figure><div class="shot"><img class="zoom" src="img/render-day.jpg" alt="الواجهة في النهار" tabindex="0"></div><figcaption>النهار</figcaption></figure>
+      <figure><div class="shot"><img class="zoom" src="img/render-night.jpg" alt="الواجهة وقت الغسق بإضاءة المبنى" tabindex="0"></div><figcaption>الغسق</figcaption></figure>
+      <figure><div class="shot"><img class="zoom" src="img/render-gate.jpg" alt="الواجهة والسور والمدخل" tabindex="0"></div><figcaption>المدخل والسور</figcaption></figure>
+      <figure><div class="shot"><img class="zoom" src="img/render-day2.jpg" alt="الواجهة الجانبية في النهار" tabindex="0"></div><figcaption>الواجهة الجانبية</figcaption></figure>
+      <figure><div class="shot"><img class="zoom" src="img/render-night2.jpg" alt="الواجهة بالليل" tabindex="0"></div><figcaption>الليل</figcaption></figure>
+    </div>
+    <p class="note r">الصور تعبيرية، وقد تختلف تفاصيل التنفيذ النهائي.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap r">
+    <p class="eyebrow">Enquiries</p>
+    <h2>للحجز والاستفسار</h2>
+    <div class="head-rule" style="margin-inline:auto; max-width:200px; background:linear-gradient(to left, transparent, var(--gold), transparent)"></div>
+    <p class="lead" style="margin-inline:auto">
+      عدد الوحدات محدود &mdash; عشر وحدات فقط في المشروع. تقسيط على ١٢ شهر.
+      للتفاصيل والأسعار كلّمنا مباشرة.
+    </p>
+    <div class="phones">
+      <button class="phone" type="button" data-tel="01116434424">01116434424</button>
+      <button class="phone" type="button" data-tel="01016640378">01016640378</button>
+    </div>
+    <p class="copied" id="copied" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="lat">LEENAS DEVELOPMENT</span>
+    ليناس للتطوير العقاري &mdash; متخصصون في تطوير المشاريع السكنية والاستثمارية
+    <span class="fine">
+      الصور والمخططات تعبيرية. المساحات والبيانات كما وردت في كتالوج المشروع وقابلة للمراجعة
+      عند التعاقد. توسعات الجامعتين (٨١ فدان) مقترحة ضمن المخطط العام للمدينة. جامعة اللوتس
+      والجهات المذكورة في المخطط جهات مستقلة، وذِكرها للدلالة على الموقع فقط ولا يعني أي
+      شراكة أو رعاية.
+    </span>
+  </div>
+</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="صورة مكبرة">
+  <button type="button" class="btn" id="lb-x" aria-label="إغلاق">&times;</button>
+  <button type="button" class="btn" id="lb-p" aria-label="السابق">&#8250;</button>
+  <button type="button" class="btn" id="lb-n" aria-label="التالي">&#8249;</button>
+  <figure><img id="lb-img" alt=""><figcaption class="cap" id="lb-cap"></figcaption></figure>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  if (!reduce) root.classList.add('js');
+
+  /* ---- scroll lifts, with a failsafe so nothing can stay hidden ---- */
+  var items = [].slice.call(document.querySelectorAll('.r'));
+  function showAll() { items.forEach(function (el) { el.classList.add('in'); }); }
+  if (reduce || !('IntersectionObserver' in window)) {
+    showAll();
+  } else {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    items.forEach(function (el) { io.observe(el); });
+    setTimeout(showAll, 2500);
+  }
+
+  /* ---- heading rules draw in with their section ---- */
+  var rules = [].slice.call(document.querySelectorAll('.head-rule'));
+  rules.forEach(function (r) { if (!reduce) { r.style.transform = 'scaleX(0)'; r.style.transition = 'transform .9s cubic-bezier(.22,.61,.36,1) .12s'; } });
+  function drawRules() { rules.forEach(function (r) { r.style.transform = 'scaleX(1)'; }); }
+  if (reduce) { drawRules(); } else {
+    var io2 = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.style.transform = 'scaleX(1)'; io2.unobserve(e.target); } });
+    }, { threshold: .5 }) : null;
+    if (io2) { rules.forEach(function (r) { io2.observe(r); }); setTimeout(drawRules, 2600); } else drawRules();
+  }
+
+  /* ---- progress bar + nav reveal + hero parallax ---- */
+  var bar = document.getElementById('bar'), nav = document.getElementById('nav'),
+      hero = document.getElementById('heroimg'), ticking = false;
+  function frame() {
+    var y = window.pageYOffset || 0,
+        h = (document.documentElement.scrollHeight - window.innerHeight) || 1;
+    bar.style.width = Math.min(100, (y / h) * 100) + '%';
+    if (y > window.innerHeight * .55) nav.setAttribute('data-show', ''); else nav.removeAttribute('data-show');
+    if (!reduce && hero && y < window.innerHeight * 1.3) hero.style.transform = 'translateY(' + (y * -0.13) + 'px)';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+  frame();
+
+  /* ---- fact counters (values already in the HTML, so they read correctly if this never runs) ---- */
+  if (!reduce && 'IntersectionObserver' in window) {
+    var AR = '٠١٢٣٤٥٦٧٨٩';
+    function toAr(n) { return String(n).split('').map(function (c) { return /[0-9]/.test(c) ? AR[+c] : c; }).join(''); }
+    var io3 = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, final = el.getAttribute('data-count');
+        io3.unobserve(el);
+        var digits = final.replace(/[^٠-٩]/g, ''), target = 0;
+        for (var i = 0; i < digits.length; i++) target = target * 10 + AR.indexOf(digits[i]);
+        if (!target || target > 100000) return;
+        var dec = final.indexOf('٫') > -1, t0 = null, DUR = 900;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / DUR), e2 = 1 - Math.pow(1 - p, 3),
+              v = Math.round(target * e2);
+          el.textContent = dec ? final : toAr(v);
+          if (p < 1) requestAnimationFrame(step); else el.textContent = final;
+        }
+        if (!dec) requestAnimationFrame(step);
+      });
+    }, { threshold: .6 });
+    [].slice.call(document.querySelectorAll('[data-count]')).forEach(function (el) { io3.observe(el); });
+  }
+
+  /* ---- lightbox with prev/next ---- */
+  var zooms = [].slice.call(document.querySelectorAll('.zoom')),
+      lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'),
+      lbCap = document.getElementById('lb-cap'), idx = 0, lastFocus = null;
+
+  function show(i) {
+    idx = (i + zooms.length) % zooms.length;
+    var z = zooms[idx];
+    lbImg.src = z.getAttribute('src');
+    lbImg.alt = z.getAttribute('alt') || '';
+    lbCap.textContent = z.getAttribute('alt') || '';
+  }
+  function open(i) {
+    lastFocus = document.activeElement;
+    show(i);
+    lb.setAttribute('data-open', '');
+    requestAnimationFrame(function () { lb.setAttribute('data-in', ''); });
+    document.getElementById('lb-x').focus();
+  }
+  function close() {
+    lb.removeAttribute('data-in');
+    setTimeout(function () { lb.removeAttribute('data-open'); lbImg.removeAttribute('src'); }, reduce ? 0 : 260);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  zooms.forEach(function (z, i) { z.addEventListener('click', function () { open(i); }); });
+  document.getElementById('lb-x').addEventListener('click', close);
+  document.getElementById('lb-p').addEventListener('click', function () { show(idx - 1); });
+  document.getElementById('lb-n').addEventListener('click', function () { show(idx + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.tagName === 'FIGURE') close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hasAttribute('data-open')) {
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') show(idx - 1);
+      if (e.key === 'ArrowLeft') show(idx + 1);
+      return;
+    }
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('zoom')) {
+      e.preventDefault(); open(zooms.indexOf(e.target));
+    }
+  });
+
+  /* ---- phone copy ---- */
+  var note = document.getElementById('copied');
+  function select(b) {
+    try {
+      var r = document.createRange(); r.selectNodeContents(b);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    } catch (err) {}
+    note.textContent = 'الرقم محدد — انسخه من فضلك';
+  }
+  [].slice.call(document.querySelectorAll('.phone')).forEach(function (b) {
+    b.addEventListener('click', function () {
+      var tel = b.getAttribute('data-tel');
+      try {
+        navigator.clipboard.writeText(tel).then(
+          function () { note.textContent = 'تم نسخ الرقم ' + tel; },
+          function () { select(b); }
+        );
+      } catch (err) { select(b); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
